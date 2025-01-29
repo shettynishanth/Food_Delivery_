@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .cart-item:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        #order-confirmation {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -55%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    {% include "navbar.html" %}
+    
+    <header class="bg-gradient-to-r from-blue-500 to-green-400 p-6 text-white text-center text-3xl font-bold shadow-md">
+        <h1>Your Shopping Cart</h1>
+    </header>
+
+    <div class="container mx-auto p-6">
+        <div id="cart-items" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+
+        <div class="flex justify-between items-center mt-6 p-4 bg-white rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold">Total: $<span id="total-amount" class="text-blue-600">0.00</span></h3>
+            <button id="checkout-btn" class="bg-green-500 text-white py-2 px-6 rounded-lg font-semibold shadow-md hover:bg-green-600 transform hover:scale-105 transition">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div id="order-confirmation" class="bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-semibold text-green-500">Order Confirmed!</h2>
+        <p class="text-gray-600 mt-2">Thank you for your purchase! Your order is on the way.</p>
+        <button id="close-popup" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">OK</button>
+    </div>
+
+    <footer class="bg-gray-900 text-white text-center p-6 mt-8 text-sm">
+        &copy; 2025 Food Delivery Website. All Rights Reserved.
+    </footer>
+
+    <script>
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+            const totalAmountContainer = document.getElementById('total-amount');
+            
+            cartItemsContainer.innerHTML = '';
+            let totalAmount = 0;
+
+            cart.forEach(item => {
+                totalAmount += item.price;
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item', 'bg-white', 'shadow-lg', 'rounded-lg', 'p-4', 'text-center', 'transition-transform', 'duration-300');
+                cartItem.innerHTML = `
+                    <h3 class="text-xl font-semibold text-gray-800">${item.name}</h3>
+                    <p class="text-gray-600 text-lg">$${item.price.toFixed(2)}</p>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+
+            totalAmountContainer.textContent = totalAmount.toFixed(2);
+        }
+
+        document.getElementById('checkout-btn').addEventListener('click', function () {
+            document.getElementById('order-confirmation').style.display = 'block';
+        });
+
+        document.getElementById('close-popup').addEventListener('click', function () {
+            document.getElementById('order-confirmation').style.display = 'none';
+            localStorage.removeItem('cart');
+            loadCart();
+        });
+
+        window.onload = loadCart;
+    </script>
+</body>
+</html>

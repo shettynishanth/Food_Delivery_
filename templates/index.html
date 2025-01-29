@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styles */
+        .section-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .restaurant-card:hover,
+        .offer-card:hover,
+        .combo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .offer-img,
+        .restaurant-img {
+            object-fit: cover;
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    {% include "navbar.html" %}
+  
+
+    
+    <!-- Header -->
+    <header class="p-6 text-black text-center text-3xl">
+        <h1>Food Delivery Website</h1>
+        <p class="text-lg mt-2">Fast Delivery to Your Doorstep</p>
+    </header>
+
+   <!-- Restaurant Section -->
+   <div class="container mx-auto p-6">
+        <h2 class="section-header text-center">Our Restaurants</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Restaurant Cards -->
+            {% for i in range(3) %}
+            <div class="restaurant-card bg-white shadow-lg rounded-lg p-4 text-center transition-all duration-300">
+                <img src="https://via.placeholder.com/400x250" alt="Restaurant {{ i+1 }}" class="restaurant-img mb-4">
+                <h3 class="text-xl font-semibold">Restaurant {{ i+1 }}</h3>
+                <a href="{{ url_for('menu') }}" class="text-green-500 hover:underline mt-2">View Menu</a>
+            </div>
+            {% endfor %}
+        </div>
+        <a href="{{ url_for('restaurant_details') }}" class="text-green-600 hover:underline font-semibold text-lg block text-center mt-4">View More Restaurants &rarr;</a>
+    </div>
+
+    <!-- Special Offers Section -->
+    <div class="bg-gray-50 p-6">
+        <h2 class="section-header text-center">Special Offers</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for i in range(3) %}
+            <div class="offer-card bg-white shadow-md rounded-lg p-4">
+                <img src="https://via.placeholder.com/400x200" alt="Offer {{ i+1 }}" class="offer-img mb-4">
+                <h3 class="text-lg font-semibold">Special Offer {{ i+1 }}</h3>
+                <p class="text-gray-600">$15.99</p>
+                <button onclick="addToCart('Special Offer {{ i+1 }}', 15.99)" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded mt-4 w-full">Order Now</button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <!-- Combo Offers Section -->
+    <div class="bg-gray-50 p-6">
+        <h2 class="section-header text-center">Combo Offers</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Combo Offer 1 -->
+            <div class="combo-card bg-white shadow-md rounded-lg p-4">
+                <img src="https://via.placeholder.com/400x200" alt="Combo 1" class="offer-img mb-4">
+                <h3 class="text-lg font-semibold">Combo 1</h3>
+                <p class="text-gray-600">$25.99</p>
+                <button onclick="addToCart('Special Offer', 15.99)" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded mt-4 w-full">Order Now</button>
+            </div>
+            <!-- Combo Offer 2 -->
+            <div class="combo-card bg-white shadow-md rounded-lg p-4">
+                <img src="https://via.placeholder.com/400x200" alt="Combo 2" class="offer-img mb-4">
+                <h3 class="text-lg font-semibold">Combo 2</h3>
+                <p class="text-gray-600">$30.99</p>
+                <button onclick="addToCart('Special Offer', 15.99)" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded mt-4 w-full">Order Now</button>
+            </div>
+            <!-- Combo Offer 3 -->
+            <div class="combo-card bg-white shadow-md rounded-lg p-4">
+                <img src="https://via.placeholder.com/400x200" alt="Combo 3" class="offer-img mb-4">
+                <h3 class="text-lg font-semibold">Combo 3</h3>
+                <p class="text-gray-600">$20.99</p>
+                <button onclick="addToCart('Special Offer', 15.99)" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded mt-4 w-full">Order Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center p-6 mt-8">
+        &copy; 2025 Food Delivery Website. All Rights Reserved.
+    </footer>
+
+    <script>
+        function addToCart(productName, price) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name: productName, price: price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${productName} added to Cart!`);
+        }
+    </script>
+
+</body>
+</html>

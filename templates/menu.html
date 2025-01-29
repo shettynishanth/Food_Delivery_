@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Food Delivery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    {% include "navbar.html" %}
+
+    <section class="container mx-auto px-6 py-12">
+        <h1 class="text-3xl font-bold text-center text-green-600 mb-8">OUR MENU</h1>
+
+
+
+
+         <!-- Morning Special -->
+         <div class="mb-12">
+            <h2 class="text-2xl font-bold text-yellow-600 mb-6">🌅 Morning Special</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Veg Morning -->
+                <div class="bg-white rounded-lg shadow-lg border-4 border-green-500 overflow-hidden">
+                    <img src="https://source.unsplash.com/400x300/?idli" alt="Idli" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-bold">Steamed Idli</h2>
+                        <p class="text-gray-600">Soft idlis served with chutney & sambar.</p>
+                        <p class="text-lg font-semibold text-blue-600 mt-2">$4.99</p>
+    
+                        <button onclick="addToCart('Steamed Idli',4.99)" class="mt-3 w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg border-4 border-green-500 overflow-hidden">
+                    <img src="https://source.unsplash.com/400x300/?idli" alt="Idli" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-bold">Steamed Idli</h2>
+                        <p class="text-gray-600">Soft idlis served with chutney & sambar.</p>
+                        <p class="text-lg font-semibold text-blue-600 mt-2">$4.99</p>
+                        <button onclick="addToCart('Steamed Idli',4.99)" class="mt-3 w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Afternoon Special -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold text-orange-600 mb-6">🌞 Afternoon Special</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Non-Veg Afternoon -->
+                <div class="bg-white rounded-lg shadow-lg border-4 border-red-500 overflow-hidden">
+                    <img src="https://source.unsplash.com/400x300/?chicken-curry" alt="Chicken Curry" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-bold">Spicy Chicken Curry</h2>
+                        <p class="text-gray-600">Rich, spicy & flavorful curry.</p>
+                        <p class="text-lg font-semibold text-blue-600 mt-2">$10.99</p>
+                        <button onclick="addToCart('Steamed Idli',4.99)" class="mt-3 w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Night Special -->
+        <div>
+            <h2 class="text-2xl font-bold text-purple-600 mb-6">🌙 Night Special</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Veg Night -->
+                <div class="bg-white rounded-lg shadow-lg border-4 border-green-500 overflow-hidden">
+                    <img src="https://source.unsplash.com/400x300/?dosa" alt="Dosa" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-bold">Crispy Masala Dosa</h2>
+                        <p class="text-gray-600">Stuffed with spiced potatoes & chutneys.</p>
+                        <p class="text-lg font-semibold text-blue-600 mt-2">$6.99</p>
+                        <button onclick="addToCart('Steamed Idli',4.99)" class="mt-3 w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+        <!-- Veg Section -->
+        <div>
+            <br>
+            <h2 class="text-2xl font-bold text-green-600 mb-6">🌿 Vegetarian Dishes</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                
+                <!-- Veg Item 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border-4 border-green-500">
+                    <img src="https://source.unsplash.com/400x300/?vegetarian-pizza" alt="Veg Pizza" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-bold">Veg Supreme Pizza</h2>
+                        <p class="text-gray-600">Loaded with fresh vegetables and cheese.</p>
+                        <p class="text-lg font-semibold text-blue-600 mt-2">$11.99</p>
+                        <button class="mt-3 w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Veg Item 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border-4 border-green-500">
+                    <img src="https://source.unsplash.com/400x300/?salad" alt="Salad" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-bold">Fresh Garden Salad</h2>
+                        <p class="text-gray-600">Healthy mix of organic veggies.</p>
+                        <p class="text-lg font-semibold text-blue-600 mt-2">$7.99</p>
+                        <button class="mt-3 w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Veg Item 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border-4 border-green-500">
+                    <img src="https://source.unsplash.com/400x300/?pasta" alt="Veg Pasta" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-bold">Creamy Alfredo Pasta</h2>
+                        <p class="text-gray-600">Delicious white sauce pasta with herbs.</p>
+                        <p class="text-lg font-semibold text-blue-600 mt-2">$10.49</p>
+                        <button class="mt-3 w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Non-Veg Section -->
+        <div class="mt-12">
+            <h2 class="text-2xl font-bold text-red-600 mb-6">🍗 Non-Vegetarian Dishes</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                
+                <!-- Non-Veg Item 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border-4 border-red-500">
+                    <img src="https://source.unsplash.com/400x300/?chicken-burger" alt="Chicken Burger" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-bold">Chicken Burger</h2>
+                        <p class="text-gray-600">Juicy chicken patty with fresh lettuce.</p>
+                        <p class="text-lg font-semibold text-blue-600 mt-2">$9.99</p>
+                        <button onclick="addToCart('Steamed Idli',4.99)" class="mt-3 w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Non-Veg Item 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border-4 border-red-500">
+                    <img src="https://source.unsplash.com/400x300/?grilled-chicken" alt="Grilled Chicken" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-bold">Grilled Chicken</h2>
+                        <p class="text-gray-600">Spicy grilled chicken with sauce.</p>
+                        <p class="text-lg font-semibold text-blue-600 mt-2">$12.49</p>
+                        <button onclick="addToCart('Steamed Idli',4.99)" class="mt-3 w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Non-Veg Item 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border-4 border-red-500">
+                    <img src="https://source.unsplash.com/400x300/?sushi" alt="Sushi" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-bold">Sushi Platter</h2>
+                        <p class="text-gray-600">Fresh sushi rolls with soy sauce.</p>
+                        <p class="text-lg font-semibold text-blue-600 mt-2">$14.99</p>
+                        <button onclick="addToCart('Steamed Idli',4.99)" class="mt-3 w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Include JavaScript for Navbar -->
+    <script>
+        fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("navbar-placeholder").innerHTML = data);
+
+
+        function addToCart(productName, price) {
+          const cart = JSON.parse(localStorage.getItem('cart')) || [];
+          cart.push({ name: productName, price: price });
+          localStorage.setItem('cart', JSON.stringify(cart));
+          alert('Added to Cart');
+        }
+
+    </script>
+
+</body>
+</html>

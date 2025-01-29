@@ -1,0 +1,27 @@
+<!-- Combo Offers Section -->
+    <div class="bg-gray-50 p-6">
+        <h2 class="section-header text-center">Combo Offers</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Combo Offer 1 -->
+            <div class="combo-card bg-white shadow-md rounded-lg p-4">
+                <img src="https://via.placeholder.com/400x200" alt="Combo 1" class="offer-img mb-4">
+                <h3 class="text-lg font-semibold">Combo 1</h3>
+                <p class="text-gray-600">$25.99</p>
+                <button class="bg-blue-500 text-white py-2 px-4 rounded mt-4 w-full">Order Now</button>
+            </div>
+            <!-- Combo Offer 2 -->
+            <div class="combo-card bg-white shadow-md rounded-lg p-4">
+                <img src="https://via.placeholder.com/400x200" alt="Combo 2" class="offer-img mb-4">
+                <h3 class="text-lg font-semibold">Combo 2</h3>
+                <p class="text-gray-600">$30.99</p>
+                <button class="bg-blue-500 text-white py-2 px-4 rounded mt-4 w-full">Order Now</button>
+            </div>
+            <!-- Combo Offer 3 -->
+            <div class="combo-card bg-white shadow-md rounded-lg p-4">
+                <img src="https://via.placeholder.com/400x200" alt="Combo 3" class="offer-img mb-4">
+                <h3 class="text-lg font-semibold">Combo 3</h3>
+                <p class="text-gray-600">$20.99</p>
+                <button class="bg-blue-500 text-white py-2 px-4 rounded mt-4 w-full">Order Now</button>
+            </div>
+        </div>
+    </div>
